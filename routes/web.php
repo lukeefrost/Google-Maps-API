@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $config['center'] = 'Mirfield Free Grammar, Mirfield';
+    $config['zoom'] = '14';
+    $config['map_height'] = '500px';
+    $config['scrollwheel'] = false;
+
+    GMaps::initialize($config);
+    $map = GMaps::create_map();
+
+    return view('welcome')->with('map', $map);
 });
