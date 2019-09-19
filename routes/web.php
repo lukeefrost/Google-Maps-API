@@ -12,12 +12,21 @@
 */
 
 Route::get('/', function () {
-    $config['center'] = 'Mirfield Free Grammar, Mirfield';
+    $config['center'] = 'Salford Quays, Salford';
     $config['zoom'] = '14';
     $config['map_height'] = '500px';
     $config['scrollwheel'] = false;
 
     GMaps::initialize($config);
+
+    // Add MARKER
+    $marker['position'] = 'Salford Quays, Salford';
+    $marker['infowindow_content'] = 'Salford Quays';
+    GMaps::add_marker($marker);
+
+    // Can add multiple markers to the map if necessary
+    // $marker['icon'] = 'filename' - can add an icon to the marker
+
     $map = GMaps::create_map();
 
     return view('welcome')->with('map', $map);
