@@ -15,6 +15,7 @@ Route::get('/', function () {
     $config['center'] = 'Salford Quays, Salford';
     $config['zoom'] = '14';
     $config['map_height'] = '500px';
+    $config['geocodeCaching'] = true;
     $config['scrollwheel'] = false;
 
     GMaps::initialize($config);
